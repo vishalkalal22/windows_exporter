@@ -75,6 +75,11 @@ Name | Description | Type | Labels
 ### Example metric
 _This collector does not yet have explained examples, we would appreciate your help adding them!_
 
+Eg to calculate CPU utilization- 100 * sum by (mode) (rate(windows_process_cpu_time_total{instance=~"$server", process=~".*java.*", mode="user"}[5m])) / sum by(mode) (rate(windows_cpu_time_total{instance="$server", mode="user"}[5m]))
+
+Memory consumption - sum(windows_process_working_set_private_bytes{instance="$server", process=~".*java.*"})
+
+
 ## Useful queries
 _This collector does not yet have any useful queries added, we would appreciate your help adding them!_
 
